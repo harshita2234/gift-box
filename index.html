@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Projects Index</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+
+        body {
+            font-family: 'Rubik Moonrocks', cursive;
+            background-color: #ADD8E6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 50px;
+            color: #1E90FF;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #4682B4;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: #87CEEB;
+            border: 2px solid #4682B4;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #1E90FF;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .box:hover {
+            background-color: #B0E0E6;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        /* Sparkle effect class */
+        .sparkle {
+            background-color: #FFD700;
+            border-color: #cd9b12;
+            color: #cd9b12;
+            /* Glowing yellow */
+            box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+            animation: sparkle-animation 1.5s infinite;
+        }
+
+        .sparkle:hover {
+            background-color: #ffe75f;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes sparkle-animation {
+
+            0%,
+            100% {
+                box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+            }
+
+            50% {
+                box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 45px #FFD700, 0 0 60px #FFD700;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Arko's Gift Boxes</h1>
+    <p>Click on box to open</p>
+
+    <div class="grid-container">
+        <!-- Boxes 1-10 -->
+        <a href="love-attack.html" class="box sparkle">1</a>
+        <a href="do-you-love-me.html" class="box">2</a>
+        <a href="heart-collector.html" class="box">3</a>
+        <a href="maze.html" class="box">4</a>
+        <a href="#" class="box">5</a>
+        <a href="#" class="box">6</a>
+        <a href="#" class="box">7</a>
+        <a href="#" class="box">8</a>
+        <a href="#" class="box">9</a>
+        <a href="#" class="box">10</a>
+    </div>
+</body>
+
+</html>
