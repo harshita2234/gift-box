@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Attack</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Montserrat:wght@400&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFAFc5;
+            /* Page color */
+            color: #E0479E;
+            /* Text color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .start-btn {
+            font-family: 'Londrina Shadow', cursive;
+            background-color: #E0479E;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 2px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .start-btn:hover {
+            background-color: #F07BB2;
+        }
+
+        .love-message {
+            display: none;
+            font-family: 'Londrina Shadow', cursive;
+            font-size: 40px;
+            color: #E0479E;
+            font-weight: bold;
+            text-shadow: 0 0 10px #E0479E, 0 0 20px #F07BB2;
+            animation: glow 1s infinite alternate;
+        }
+
+        .popup {
+            position: absolute;
+            background-color: #FFCfd2;
+            /* Dialog box color */
+            border: 2px solid #E0479E;
+            /* Border color */
+            border-radius: 2px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 250px;
+            z-index: 10;
+        }
+
+        .popup p {
+            margin: 0;
+            font-size: 16px;
+            color: #E0479E;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            font-family: 'Londrina Shadow', cursive;
+            background-color: #E0479E;
+            border: none;
+            padding: 5px 15px;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #F07BB2;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #E0479E, 0 0 20px #F07BB2;
+            }
+
+            to {
+                text-shadow: 0 0 20px #E0479E, 0 0 40px #F07BB2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="start-btn" id="startButton">START</button>
+        <p class="love-message" id="loveMessage">I LOVE YOU DARLING</p>
+    </div>
+
+    <script>
+        const messages = [
+            "You're the most amazing person ever!",
+            "I love your smile. 😊",
+            "You light up my world! 🌟",
+            "Thank you for always being there for me. ❤️",
+            "You’re my favorite person in the whole wide world!",
+            "I’m so lucky to have you in my life. 🍀",
+            "You make my heart skip a beat. 💓",
+            "You’re my sunshine on a cloudy day. 🌞",
+            "Life with you is so much better. 💕",
+            "I can’t stop thinking about you. 😘",
+            "You complete me. ❤️",
+            "You’re my soulmate. 🥰",
+            "I adore you more than words can say. 💌",
+            "You’re my forever and always. 🌹",
+            "I’m so proud of you. 🏆",
+            "You’re my dream come true. 🌠",
+            "With you, everything feels right. ✨",
+            "You’re the reason for my biggest smiles. 😊",
+            "I cherish every moment with you. 💖",
+            "You’re my heart’s favorite melody. 🎵",
+            "You’re a blessing to my life. 🙏",
+            "You make everything brighter. 💡",
+            "I love the way you make me laugh. 😂",
+            "You’re my happy place. 🏡",
+            "Forever yours. 💍"
+        ];
+
+        document.getElementById("startButton").addEventListener("click", () => {
+            const container = document.body;
+            let closedPopups = 0;
+
+            // Hide the START button
+            document.getElementById("startButton").style.display = "none";
+
+            const showPopup = (index) => {
+                if (index >= messages.length) return;
+
+                const popup = document.createElement("div");
+                popup.className = "popup";
+                popup.style.top = Math.random() * (window.innerHeight - 100) + "px";
+                popup.style.left = Math.random() * (window.innerWidth - 250) + "px";
+
+                const message = document.createElement("p");
+                message.innerText = messages[index];
+                popup.appendChild(message);
+
+                const button = document.createElement("button");
+                button.innerText = "OK";
+                button.addEventListener("click", () => {
+                    popup.remove();
+                    closedPopups++;
+                    if (closedPopups === messages.length) {
+                        document.getElementById("loveMessage").style.display = "block";
+                    }
+                });
+                popup.appendChild(button);
+
+                container.appendChild(popup);
+
+                // Show the next popup after 0.5 seconds
+                setTimeout(() => {
+                    showPopup(index + 1);
+                }, 50);
+            };
+
+            showPopup(0); // Start showing popups from the first message
+        });
+    </script>
+</body>
+
+</html>
